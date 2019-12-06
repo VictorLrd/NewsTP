@@ -40,14 +40,13 @@ function toggleFavorite(state = initialState, action) {
       state.categories.categories[categorieIndex].checked = action.value.checked
       console.log(state.categories)
 
-      // Le film est déjà dans les favoris, on le supprime de la liste
       nextState = {
         ...state,
         categories: state.categories
       }
       return nextState || state
   default:
-    return state
+    return state.categories ? state.categories : initialState
   }
 }
 
