@@ -45,7 +45,44 @@ class NewsScreen extends Component {
     })
   }
 
-  async componentDidMount(){
+    async componentDidMount(){
+    console.log(this.props.categories.categories)
+    if(this.props.categories || this.props.categories.categories){
+      const cats =  [
+        {
+          value: 'business',
+          checked: true
+        },
+        {
+          value: 'entertainment',
+          checked: false
+        },
+        {
+          value: 'general',
+          checked: false
+        },
+        {
+          value: 'health',
+          checked: false
+        },
+        {
+          value: 'science',
+          checked: false
+        },
+        {
+          value: 'sports',
+          checked: false
+        },
+        {
+          value: 'technology',
+          checked: false
+        }
+      ]
+      this.setState({categories: cats})
+
+    }else{
+      this.setState({categories: this.props.categories.categories})
+    }
     await this.getArticles()
   }
 
